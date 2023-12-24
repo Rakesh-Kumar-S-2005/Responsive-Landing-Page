@@ -1,4 +1,6 @@
 .headline {
     position:fixed;
-    
+    width:fit-content;
+    height:30px;
+    border:2px solid black;
 }
