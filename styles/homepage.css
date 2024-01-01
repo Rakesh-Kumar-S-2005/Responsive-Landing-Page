@@ -122,15 +122,16 @@
 .product-page {
     margin-top:100px;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(0px,200px));
+    grid-template-columns:repeat(auto-fit,minmax(0px,230px));
     border:2px solid red;
     margin-left:15px;
-    gap:15px;
+    
 }
 .product {
-    padding:20px 15px 10px 15px;
+    padding:0px 18px 0px 18px;
 }
 .images {
+    padding:25px 10px 20px 10px;
     height:180px;
 }
 .images img{
@@ -144,6 +145,7 @@
     overflow:hidden;
     font-family: 'Roboto', sans-serif;
     font-weight:bold;
+    height:35px;
     
 }
 .star {
