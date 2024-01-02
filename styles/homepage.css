@@ -122,16 +122,17 @@
 .product-page {
     margin-top:100px;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(0px,230px));
-    border:2px solid red;
+    grid-template-columns:repeat(auto-fit,minmax(0px,210px));
     margin-left:15px;
+    gap:20px;
     
 }
 .product {
-    padding:0px 18px 0px 18px;
+    padding:10px 13px 10px 13px;
+    border-right:1px solid rgb(231, 231, 231);
 }
 .images {
-    padding:25px 10px 20px 10px;
+    padding:5px 0px 5px 0px;
     height:180px;
 }
 .images img{
