@@ -27,6 +27,33 @@ const productInfo=[
             noOfRatings:56
         },
         price:799
+    },
+    {
+        imageLink:'https://supersimple.dev/projects/amazon/images/products/black-2-slot-toaster.jpg',
+        imageDescription:'2 Slot Toaster - Black',
+        ratings: {
+            starImageLink:'https://supersimple.dev/projects/amazon/images/ratings/rating-5.png',
+            noOfRatings:2197
+        },
+        price:1899
+    },
+    {
+        imageLink:'https://supersimple.dev/projects/amazon/images/products/6-piece-white-dinner-plate-set.jpg',
+        imageDescription:'6 Piece White Dinner Plate Set',
+        ratings: {
+            starImageLink:'https://supersimple.dev/projects/amazon/images/ratings/rating-4.png',
+            noOfRatings:37
+        },
+        price:2067    
+    },
+    {
+        imageLink:'https://supersimple.dev/projects/amazon/images/products/6-piece-non-stick-baking-set.webp',
+        imageDescription:'6-Piece Nonstick, Carbon Steel Oven',
+        ratings: {
+            starImageLink:'https://supersimple.dev/projects/amazon/images/ratings/rating-45.png',
+            noOfRatings:175
+        },
+        price:3499  
     }
 ].forEach((details,index) => {
     const htmlElement=
