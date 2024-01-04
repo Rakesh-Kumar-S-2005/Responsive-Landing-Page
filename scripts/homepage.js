@@ -55,6 +55,7 @@ const productInfo=[
         },
         price:3499  
     }
+    
 ].forEach((details,index) => {
     const htmlElement=
                `<div class="product item1">
@@ -86,7 +87,7 @@ const productInfo=[
                             <option value="9">9</option>
                             <option value="10">10</option>
                         </select><br>
-                        <button class="cart-button">Add to Cart</button>
+                        <button class="cart-button js-cart-button">Add to Cart</button>
                     </div>
                 </div>`
     
