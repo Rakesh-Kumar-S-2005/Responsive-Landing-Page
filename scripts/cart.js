@@ -1,5 +1,5 @@
 
-
+let cartNumber=0;
 let cartList=[];
 let eventListener1= document.querySelectorAll('[data-product-id]');
 eventListener1.forEach((button,index) => {
@@ -20,6 +20,7 @@ eventListener1.forEach((button,index) => {
             );
         } 
         cartListInfo();
+        noOfItemsincart();
     })
 })
 function cartListInfo() {
@@ -27,4 +28,8 @@ function cartListInfo() {
         console.log(object.cartId);
         console.log(object.quantity);
     })
+}
+function noOfItemsincart() {
+    cartNumber++;
+    document.querySelector('.cart-number').innerHTML=cartNumber;
 }
