@@ -1,6 +1,7 @@
 let concatHTML='';
 const productInfo=[
     {
+        id:'15bcdefgh123-12db',
         imageLink:'https://supersimple.dev/projects/amazon/images/products/athletic-cotton-socks-6-pairs.jpg',
         imageDescription:'Black and Gray Athletic Cotton Socks - 6 Pairs',
         ratings: {
@@ -10,6 +11,7 @@ const productInfo=[
         price:1090
     },
     {
+        id:'15bcdefgh123-12dc',
         imageLink:'	https://supersimple.dev/projects/amazon/images/products/intermediate-composite-basketball.jpg',
         imageDescription:'Intermediate Size Basketball',
         ratings: {
@@ -20,6 +22,7 @@ const productInfo=[
 
     },
     {
+        id:'15bcdefgh123-12dd',
         imageLink:'https://supersimple.dev/projects/amazon/images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg',
         imageDescription:'Adults Plain Cotton T-Shirt - 2 Pack',
         ratings: {
@@ -29,6 +32,7 @@ const productInfo=[
         price:799
     },
     {
+        id:'15bcdefgh123-12de',
         imageLink:'https://supersimple.dev/projects/amazon/images/products/black-2-slot-toaster.jpg',
         imageDescription:'2 Slot Toaster - Black',
         ratings: {
@@ -38,6 +42,7 @@ const productInfo=[
         price:1899
     },
     {
+        id:'15bcdefgh123-12df',
         imageLink:'https://supersimple.dev/projects/amazon/images/products/6-piece-white-dinner-plate-set.jpg',
         imageDescription:'6 Piece White Dinner Plate Set',
         ratings: {
@@ -47,6 +52,7 @@ const productInfo=[
         price:2067    
     },
     {
+        id:'15bcdefgh123-12dg',
         imageLink:'https://supersimple.dev/projects/amazon/images/products/6-piece-non-stick-baking-set.webp',
         imageDescription:'6-Piece Nonstick, Carbon Steel Oven',
         ratings: {
@@ -87,10 +93,12 @@ const productInfo=[
                             <option value="9">9</option>
                             <option value="10">10</option>
                         </select><br>
-                        <button class="cart-button js-cart-button">Add to Cart</button>
+                        <button class="cart-button js-cart-button" data-product-id="${details.id}">Add to Cart</button>
                     </div>
+                    
                 </div>`
     
     concatHTML+=htmlElement;
+    
     document.querySelector('.product-page').innerHTML=concatHTML;
 });
