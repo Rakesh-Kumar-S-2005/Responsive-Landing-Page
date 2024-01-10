@@ -1,4 +1,5 @@
 let concatHTML='';
+
 const productInfo=[
     {
         id:'15bcdefgh123-12db',
