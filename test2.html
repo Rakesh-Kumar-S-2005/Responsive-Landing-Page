@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .container {
+                display:grid;
+                grid-template-columns:100px 1fr 1fr;
+                gap:10px;
+            }
+            .sub {
+                background-color:red;
+                border:1px solid black;
+                height:50px;
+            }
+            @media screen and (width<1000px) {
+                .container {
+                    grid-template-columns: 100px 1fr;
+                }
+                .class3 {
+                    grid-column-start: 1;
+                    grid-column-end: span 2;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="sub class1">
+
+            </div>
+            <div class="sub class2">
+
+            </div>
+            <div class="sub class3"></div>
+        </div>
+    </body>
+</html>

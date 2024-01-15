@@ -1,6 +1,6 @@
 
 let cartNumber=0;
-let cartList=[];
+export let cartList=[];
 let eventListener1= document.querySelectorAll('[data-product-id]');
 eventListener1.forEach((button,index) => {
     button.addEventListener('click',() => {
@@ -21,6 +21,8 @@ eventListener1.forEach((button,index) => {
         } 
         cartListInfo();
         noOfItemsincart();
+        cartListStorage();
+        
     })
 })
 function cartListInfo() {
@@ -33,3 +35,10 @@ function noOfItemsincart() {
     cartNumber++;
     document.querySelector('.cart-number').innerHTML=cartNumber;
 }
+function cartListStorage() {
+    localStorage.setItem('cartlist',JSON.stringify(cartList));
+}
+
+cartList=JSON.parse(localStorage.getItem('cartlist'));
+
+

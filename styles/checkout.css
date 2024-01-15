@@ -1,0 +1,375 @@
+.header {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    height:55px;
+    padding:0px 70px 0px 70px;
+    background-color:#ffffff;
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+}
+.first-section {
+    display:flex;
+    width:150px;
+    justify-content: center;
+    align-items: center;
+}
+.amazon-image2 {
+    width:100px;
+}
+.second-section {
+    display:flex;
+    flex-direction: row;
+    flex:1;
+    justify-content: center;
+    align-items:center;
+    margin-left:20px;
+    margin-right:20px;
+}
+.checkout {
+    font-size:30px;
+    font-weight:bold;
+}
+.items {
+    color:rgb(0,113,133);
+}
+.third-section {
+    display:flex;
+    flex-direction: row;
+    width:60px;
+    justify-content: center;
+    align-items: center;
+}
+.lock {
+    width:20px;
+}
+
+
+
+
+.main-page {
+    margin-top:100px;
+    display:grid;
+    grid-template-columns:1fr 350px;
+    column-gap:10px;
+    padding:0px 10px 0px 100px;
+}
+
+.cart  {
+    display:flex;
+    flex-direction:column;
+    row-gap:30px;
+    border:2px solid rgb(222,222,222);
+    padding-left:20px;
+  
+}
+.delivery-date {
+    margin-top:20px;
+    font-size:20px;
+    font-family:arial;
+    color:green;
+    font-weight:bold;
+}
+.cart-item-details {
+    display:grid;
+    grid-template-columns:100px 1fr 1fr;
+    column-gap:20px;
+}
+.image-container {
+    display:flex;
+    justify-content: center;
+    align-items: start;
+    
+}
+.cart-image {
+    width:100%;
+}
+.cart-description {
+    display:flex;
+    flex-direction:column;
+    justify-content: start;
+    gap:12px;
+}
+.name {
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow: hidden;
+    font-family:arial;
+    font-size:16px;
+    font-weight:bold;
+}
+.cart-amount {
+    font-size:15px;
+    font-family: arial;
+    color:red;
+    font-weight:bold;
+}
+.cart-quantity {
+    display:flex;
+    flex-direction:row;
+    column-gap:8px;
+}
+.quantity {
+    font-family:arial;
+    font-size:15px;
+}
+.update,.delete {
+    font-family:arial;
+    font-size:15px;
+    color:blue;
+    cursor:pointer;
+}
+.update:hover, .delete:hover {
+    color:red;
+}
+.cart-delivery {
+    display:flex;
+    flex-direction:column;
+    row-gap: 15px;
+    margin-bottom:25px;
+}
+.delivery-option {
+    font-family:arial;
+    font-size:18px;
+    font-weight:bold;
+    color:black;
+}
+.radio {
+    display:flex;
+    flex-direction:row;
+}
+.options {
+    display:flex;
+    flex-direction:column;
+    row-gap:5px;
+}
+.date-option {
+    color:green;
+    font-size:18px;
+    font-weight:bold;
+    font-family:arial;
+}
+.delivery-type {
+    font-size:15px;
+    font-family:arial;
+    color:black;
+}
+.radio1 {
+    width:20px;
+    height:20px;
+    border:1px solid blue;
+}
+.right-section {
+    display:flex;
+    flex-direction:column;
+    padding:20px 10px 20px 10px;
+    row-gap:5px;
+    border:2px solid rgb(222,222,222);
+}
+.summary {
+    font-size:25px;
+}
+.cost-of-the-items {
+    display:flex;
+    flex-direction:column;
+    row-gap:15px;
+    border:2px solid black;
+    padding-bottom: 15px;
+    border-bottom-color: rgb(222,222,222);
+    border-top:none;
+    border-left:none;
+    border-right:none;
+}
+.summary {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
+.summary-content,.amount {
+    font-family:arial;
+    font-size:16px;
+    color:black;
+}
+.total-cost {
+    margin-top:10px;
+}
+.total-amount,.total-money {
+    font-size:20px;
+    color:red;
+    font-weight:bold;
+}
+.online-payment {
+    display:flex;
+    flex-direction:row;
+    justify-content: start;
+    gap:5px;
+    margin-top:15px;
+}
+.paypal {
+    font-size:20px;
+    font-weight:bold
+}
+.online-banking {
+    width:18px;
+    height:18px;
+    margin-left:5px;
+}
+.order-placed {
+    display:flex;
+    flex-direction:column;
+    row-gap:10px;
+    align-items:center;
+    margin-top:10px;
+}
+.place {
+    width:100%;
+    height:45px;
+    border-radius:10px;
+    background-color:yellow;
+    color:black;  
+    border:none;
+    cursor:pointer;
+    transition: border-radius 1s;
+}
+.place:hover {
+    border-radius:0px;
+    opacity:0.7;
+}
+.place:active {
+    opacity:0.6;
+}
+@media screen and (width<=1000px) {
+    .checkout {
+        font-size:20px;
+    }  
+    .header {
+        padding:0px 55px 0px 55px;
+    }
+}
+@media screen and (width<=790px) {
+    .header {
+        padding:0px 40px 0px 40px;
+    }
+}
+@media screen and (width<=600px) {
+    .header {
+        padding:0px 30px 0px 30px;
+    }
+}
+@media screen and (width<=500px) {
+    .header {
+        padding:0px 25px 0px 25px;
+    }
+}
+@media screen and (width<=400px) {
+    .header {
+        padding:0px 15px 0px 15px;
+    }
+}
+@media screen and (width<=300px) {
+    .header {
+        padding:0px 10px 0px 10px;
+    }
+}
+@media screen and (width<1800px)  {
+    .main-page {
+        padding:0px 10px 0px 90px;
+    }
+   
+}
+@media screen and (width<1500px)  {
+    .main-page {
+        padding:0px 10px 0px 60px;
+    }
+   
+}
+@media screen and (width<1400px)  {
+    .main-page {
+        padding:0px 10px 0px 50px;
+    }
+   
+}
+@media screen and (width<1300px)  {
+    .main-page {
+        padding:0px 10px 0px 30px;
+    }
+   
+}
+@media screen and (width<1200px)  {
+    .main-page {
+        padding:0px 10px 0px 20px;
+    }
+   
+}
+@media screen and (width<1100px)  {
+    .main-page {
+        padding:0px 10px 0px 10px;
+    }
+   
+}
+@media screen and (width<=1000px) {
+    .main-page {
+        grid-template-columns:1fr;
+        padding:10px 150px 10px 150px;
+        row-gap:20px;
+    }
+    .right-section {
+        grid-row:1;
+    }
+    .cart-item-details {
+        grid-template-columns: 100px  1fr;
+        row-gap:20px;
+    }
+    .cart-delivery {
+        grid-column-start: 1;
+        grid-column-end: span 2;
+    }
+    
+}
+@media screen and (width<=900px) {
+    .main-page {
+        
+        padding:10px 130px 10px 130px;
+       
+    }
+}
+@media screen and (width<=800px) {
+    .main-page {
+        
+        padding:10px 110px 10px 110px;
+       
+    }
+}
+@media screen and (width<=700px) {
+    .main-page {
+        
+        padding:10px 90px 10px 90px;
+       
+    }
+}
+@media screen and (width<=600px) {
+    .main-page {
+        
+        padding:10px 60px 10px 60px;
+       
+    }
+}
+@media screen and (width<=500px) {
+    .main-page {
+        
+        padding:10px 40px 10px 40px;
+       
+    }
+}
+@media screen and (width<=400px) {
+    .main-page {
+        
+        padding:10px 30px 10px 30px;
+       
+    }
+}

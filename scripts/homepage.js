@@ -1,6 +1,6 @@
 let concatHTML='';
 
-const productInfo=[
+export let productInfo=[
     {
         id:'15bcdefgh123-12db',
         imageLink:'https://supersimple.dev/projects/amazon/images/products/athletic-cotton-socks-6-pairs.jpg',
@@ -63,7 +63,8 @@ const productInfo=[
         price:3499  
     }
     
-].forEach((details,index) => {
+];
+productInfo.forEach((details) => {
     const htmlElement=
                `<div class="product item1">
                     <div class="images">
@@ -90,8 +91,8 @@ const productInfo=[
                             <option value="5">5</option>
                             <option value="6">6</option>
                             <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
+                            <option value="8">8</optsion>
+                            <option value="9">9</optsion>
                             <option value="10">10</option>
                         </select><br>
                         <button class="cart-button js-cart-button" data-product-id="${details.id}">Add to Cart</button>
@@ -100,6 +101,19 @@ const productInfo=[
                 </div>`
     
     concatHTML+=htmlElement;
+    document.querySelector('.product-page').innerHTML= concatHTML;
     
-    document.querySelector('.product-page').innerHTML=concatHTML;
+    
 });
+
+    
+export let object1=[
+    {
+        name:'Raghul',
+        place:'ponneri'
+    },
+    {
+        name:'Velan',
+        place:'ponneri'
+    }
+];

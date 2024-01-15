@@ -1,23 +1,70 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <style>
+            .container {
+                display:grid;
+                grid-template-columns:1fr 350px;
+                gap:20px;
+            }
+            
+            .class2 {
+                border:1px solid red;
+                height:50px;
+            }
+            @media screen and (width<750px) {
+                .container {
+                    grid-template-columns:1fr;
+                }
+                .class2 {
+                    grid-row:1;
+                }
+            }
+            .class1 {
+                display:flex;
+                flex-direction:column;
+                gap:10px;
+            }
+            .side {
+                width:100%;
+                height:30px;
+                border:1px solid black;
+            }
+        </style>
     </head>
     <body>
-        <h1 data-console-name="hello">Hello</h1>
+        <div class="container">
+            <div class="sub class1">
+                <div class="side classes1"></div>
+                <div class="side classes2"></div>
+                <div class="side classes3"></div>
+                <div class="side classes4"></div>
+                <div class="side classes5"></div>
+                <div class="side classes6"></div>
+                <div class="side classes7"></div>
+            </div>
+            <div class="sub class2"></div>
+            <div class="div"></div>
+        </div>
         <script>
-            let object1=document.querySelector('[data-console-name]');
-            object1.addEventListener('click',() => {
-                console.log('hello world');
-                console.log(object1.dataset.consoleName);
+            let concat=' ';
+            let arrayObjects= [
+                {
+                    name:'raghul',
+                    place:'ponneri'
+                },
+                {
+                    name:'velan',
+                    place:'ponneri'
+                }
+            ];
+            arrayObjects.forEach((cart) => {
+                html=`<div>${cart.name}</div>`;
+                concat+=html;
+                document.querySelector('.div').innerHTML=concat;
             });
-            let name='Raghul'
-            let object2= {
-                name,
-                place:'ponneri'
-            };
-            console.log(object2.name);
-            console.log(object2.place);
+            console.log(document.querySelector('.div').innerHTML);
+           
         </script>
     </body>
 </html>

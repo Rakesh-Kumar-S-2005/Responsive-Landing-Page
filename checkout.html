@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles/checkout.css">
+        <title>Checkout Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale:1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Charm&family=Fuggles&family=Playfair+Display:ital,wght@0,400;1,500&family=Roboto+Slab:wght@300&family=Roboto:ital,wght@1,300&family=Tangerine:wght@700&family=Vast+Shadow&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="header">
+            <section class="first-section">
+                <img class="amazon-image2" src="https://supersimple.dev/projects/amazon/images/amazon-logo.png">
+            </section>
+            <section class="second-section">
+                <strong class="checkout">Checkout (<span class="items" data-cart-number="0">0 Items</span>)</strong>
+            </section>
+            <section class="third-section">
+                <img class="lock" src="https://supersimple.dev/projects/amazon/images/icons/checkout-lock-icon.png">
+            </section>
+        </nav>
+        <main class="main-page">
+            
+            <section class="left-section">
+                <div class="cart info1">
+                    <div class="delivery-date">Delivery date: Wednesday, January 24</div>
+                    <div class="cart-item-details">
+                        <div class="image-container">
+                            <img class="cart-image" src="https://supersimple.dev/projects/amazon/images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg">
+                        </div>
+                        <div class="cart-description">
+                            <div class="name">Adults Plain Cotton T-Shirt - 2 Pack</div>
+                            <div class="cart-amount">$7.99</div>
+                            <div class="cart-quantity">
+                                <div class="quantity">Quantity: 1</div>
+                                <div class="update">Update</div>
+                                <div class="delete">Delete</div>
+                            </div>
+                        </div>
+                        <div class="cart-delivery">
+                            <div class="delivery-option">Choose a delivery option:</div>
+                            <div class="radio">
+                                <input class="radio1" type="radio" name="options">
+                                <div class="options">
+                                    <div class="date-option">Wednesday, January 24</div>
+                                    <div class="delivery-type">FREE Shipping</div>
+                                </div>
+                            </div>
+                            <div class="radio">
+                                <input class="radio1" type="radio" name="options">
+                                <div class="options">
+                                    <div class="date-option">Thursday, January 18</div>
+                                    <div class="delivery-type">$4.99 - Shipping</div>
+                                </div>
+                            </div>
+                            <div class="radio">
+                                <input class="radio1" type="radio" name="options">
+                                <div class="options">
+                                    <div class="date-option">Tuesday, January 16</div>
+                                    <div class="delivery-type">$9.99 - Shipping</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+            
+            <section class="right-section">
+                <div class="order-summary"><h1 class="summary">Order Summary</h1></div>
+                <div class="cost-of-the-items">
+
+                    <div class="items-number summary">
+                        <div class="no-of-items summary-content">Items (0):</div>
+                        <div class="amount">$0.00</div>
+                    </div>
+                    <div class="summary shipping-details">
+                        <div class="shipping-details summary-content">Shipping & Handling:</div>
+                        <div class="amount">$0.00</div>
+                    </div>
+                    <div class="summary amount-before-tax">
+                        <div class="money-before-tax summary-content">Total Before Tax:</div>
+                        <div class="amount">$0.00</div>
+                    </div>
+                    <div class="summary tax-amount">
+                        <div class="summary-content tax-money">Estimated Tax(10%):</div>
+                        <div class="amount">$0.00</div>
+                    </div>
+
+                </div>
+                <div class="summary total-cost">
+                    <div class="total-amount">Order Total:</div>
+                    <div class="total-money">$0.00</div>
+                </div>
+                <div class="online-payment">
+                    <div class="paypal">Use PayPal</div>
+                    <input class="online-banking" type="checkbox" name="paypal">
+                </div>
+                <div class="order-placed">
+                    <button class="place">Place Your Order</button>
+                </div>
+                
+            </section>
+        </main>
+        <script type="module" src="scripts/checkout.js"></script>
+    </body>
+</html>
