@@ -1,4 +1,5 @@
 let concatHTML='';
+let html= document.querySelector('.product-page');
 
 export let productInfo=[
     {
@@ -64,7 +65,7 @@ export let productInfo=[
     }
     
 ];
-productInfo.forEach((details) => {
+productInfo.forEach((details,index) => {
     const htmlElement=
                `<div class="product item1">
                     <div class="images">
@@ -98,22 +99,15 @@ productInfo.forEach((details) => {
                         <button class="cart-button js-cart-button" data-product-id="${details.id}">Add to Cart</button>
                     </div>
                     
-                </div>`
+                </div>`;
     
     concatHTML+=htmlElement;
-    document.querySelector('.product-page').innerHTML= concatHTML;
+    html.innerHTML= concatHTML;
     
     
 });
 
+
+
     
-export let object1=[
-    {
-        name:'Raghul',
-        place:'ponneri'
-    },
-    {
-        name:'Velan',
-        place:'ponneri'
-    }
-];
+

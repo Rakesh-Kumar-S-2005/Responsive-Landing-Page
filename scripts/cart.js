@@ -11,7 +11,7 @@ eventListener1.forEach((button,index) => {
                 random++;
             }
         }
-        if(random==0) {
+        if(random===0) {
             cartList.push(
                 {
                     cartId:button.dataset.productId,
