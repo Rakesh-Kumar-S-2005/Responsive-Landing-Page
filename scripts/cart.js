@@ -35,8 +35,10 @@ function noOfItemsincart() {
     cartNumber++;
     document.querySelector('.cart-number').innerHTML=cartNumber;
 }
-function cartListStorage() {
+export function cartListStorage() {
     localStorage.setItem('cartlist',JSON.stringify(cartList));
+    
+
 }
 
 cartList=JSON.parse(localStorage.getItem('cartlist'));

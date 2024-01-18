@@ -1,11 +1,13 @@
 import {cartList} from '../scripts/cart.js';
 import {productInfo} from '../scripts/cartItems.js';
-let concatHtmml1=' ';
-productInfo.forEach((cartproducts,index) => {
-    cartList.forEach((cartListItems,index) => {
-        if(cartListItems.cartid===cartproducts.id) {
+import {cartListStorage} from '../scripts/cart.js';
+let htmlElements1;
+let concatHtml1=' ';
+cartList.forEach((cartListItems,index) => {
+    productInfo.forEach((cartproducts,index) => {
+        if(cartListItems.cartId===cartproducts.id) {
 
-            let htmlElements1=`
+            htmlElements1=`
             <div class="cart info1">
                 <div class="delivery-date">Delivery date: Wednesday, January 24</div>
                 <div class="cart-item-details">
@@ -18,7 +20,7 @@ productInfo.forEach((cartproducts,index) => {
                         <div class="cart-quantity">
                             <div class="quantity">Quantity: ${cartListItems.quantity}</div>
                             <div class="update">Update</div>
-                            <div class="delete">Delete</div>
+                            <div class="delete" data-product-ids="${cartproducts.id}">Delete</div>
                         </div>
                     </div>
                     <div class="cart-delivery">
@@ -49,11 +51,33 @@ productInfo.forEach((cartproducts,index) => {
             </div>
         
         `;
-        }
-        concatHtmml1+=htmlElements1;
-        document.querySelector('.left-section').innerHTML=concatHtmml1;
-
+        concatHtml1+=htmlElements1;
+        displaycartList();
         
+        }
     })
         
+});
+let random=0;
+let eventListener2= document.querySelectorAll('.delete');
+eventListener2.forEach((deleteButton) => {
+    deleteButton.addEventListener('click',() => {
+        cartList.forEach((cartItems,index) => {
+            if(cartItems.cartId===deleteButton.dataset.productIds) {
+                cartList.splice(index,1);
+                cartListStorage();
+                displaycartList();
+                
+            }
+        })
+    })
 })
+cartList=JSON.parse(localStorage.getItem('cartlist'));
+function displaycartList() {
+    document.querySelector('.left-section').innerHTML=concatHtml1;
+}
+
+
+
+
+
