@@ -1,10 +1,11 @@
 import {cartList} from '../scripts/cart.js';
 import {productInfo} from '../scripts/cartItems.js';
 import {cartListStorage} from '../scripts/cart.js';
-let htmlElements1;
 let concatHtml1=' ';
 
 updateCart();
+
+
 let eventListener2= document.querySelectorAll('.delete');
 eventListener2.forEach((deleteButton) => {
     deleteButton.addEventListener('click',() => {
@@ -12,25 +13,20 @@ eventListener2.forEach((deleteButton) => {
             if(cartItems.cartId===deleteButton.dataset.productIds) {
                 cartList.splice(index,1);
                 cartListStorage();
-                updateStorage();
+                cartList=JSON.parse(localStorage.getItem('cartlist'));
                 updateCart();
-                
                 
             }
         })
     })
 })
-function updateStorage()  {
-    cartList=JSON.parse(localStorage.getItem('cartlist'));
-}
-
 
 function updateCart() {
     cartList.forEach((cartListItems,index) => {
         productInfo.forEach((cartproducts,index) => {
             if(cartListItems.cartId===cartproducts.id) {
     
-                htmlElements1=`
+                let htmlElements1=`
                 <div class="cart info1">
                     <div class="delivery-date">Delivery date: Wednesday, January 24</div>
                     <div class="cart-item-details">
