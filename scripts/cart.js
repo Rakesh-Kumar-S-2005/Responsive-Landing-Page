@@ -40,7 +40,8 @@ export function cartListStorage() {
     
 
 }
-
 cartList=JSON.parse(localStorage.getItem('cartlist'));
+
+
 
 

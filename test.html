@@ -46,8 +46,10 @@
             <div class="sub class2"></div>
             <div class="div"></div>
         </div>
+        <button class="button10">Hello</button>
+        <div class="div-class10"></div>
         <script>
-            let concat=' ';
+            /*let concat=' ';
             let arrayObjects= [
                 {
                     name:'raghul',
@@ -63,8 +65,53 @@
                 concat+=html;
                 document.querySelector('.div').innerHTML=concat;
             });
-            console.log(document.querySelector('.div').innerHTML);
+            console.log(document.querySelector('.div').innerHTML); */
+            
+            let object1=[
+                {
+                    name:'raghul',
+                    place:'ponneri'
+                },
+                {
+                    name:'ragavan',
+                    place:'ponneri'
+                },
+                {
+                    name:'rag',
+                    place:'ponneri'
+                },
+                {
+                    name:'van',
+                    place:'ponneri'
+                },
+                {
+                    name:'ran',
+                    place:'ponneri'
+                },
+                {
+                    name:'agavan',
+                    place:'ponneri'
+                }
+            ];
+           function1();
+           let eventListener1= document.querySelector('.button10');
+           eventListener1.addEventListener('click',() => {
+            object1.splice(0,1);
+            localStorage.setItem('cart',JSON.stringify(object1));
+            object1=JSON.parse(localStorage.getItem('cart'));
+            function1();
+           });
            
+           
+           function function1() {
+            let concathtml=' ';
+            object1.forEach((cart,index) => {
+                let htmlElement=`<p> ${cart.name} ${cart.place}</p>`;
+                concathtml+=htmlElement;
+                document.querySelector('.div-class10').innerHTML=concathtml;
+                
+            }) 
+           }
         </script>
     </body>
 </html>
