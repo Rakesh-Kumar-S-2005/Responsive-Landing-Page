@@ -4,28 +4,12 @@ import {cartListStorage} from '../scripts/cart.js';
 
 
 updateCart();
-
-let eventListener2= document.querySelectorAll('.delete');
-eventListener2.forEach((deleteButton) => {
-    deleteButton.addEventListener('click',() => {
-        cartList.forEach((cartItems,index) => {
-            if(cartItems.cartId===deleteButton.dataset.productIds) {
-                console.log(index);
-                cartList.splice(index,1);
-                cartListStorage();
-                updateCart();
-                notation();
-
-            }
-        })
-    })
-})
-cartList= JSON.parse(localStorage.getItem('cartlist'));
+document.querySelector('.checkout').innerHTML=`Checkout (<span class="items" data-cart-number="0">${cartList.length} Items</span>)`;
 
 function updateCart() {
     let concatHtml1=' ';
     cartList.forEach((cartListItems,index) => {
-        productInfo.forEach((cartproducts,index) => {
+        productInfo.forEach((cartproducts) => {
             if(cartListItems.cartId===cartproducts.id) {
     
                     let htmlElements1=`
@@ -73,16 +57,35 @@ function updateCart() {
                 
                 `;
                 concatHtml1+=htmlElements1;
-                document.querySelector('.left-section').innerHTML=concatHtml1;
+                
                 
             }
         })
             
     });
+    document.querySelector('.left-section').innerHTML=concatHtml1;
+    document.querySelector('.checkout').innerHTML=`Checkout (${cartList.length} Items)`;
+    let eventListener2= document.querySelectorAll('.delete');
+    eventListener2.forEach((deleteButton) => {
+        deleteButton.addEventListener('click',() => {
+            cartList.forEach((cartItems,index) => {
+                if(cartItems.cartId===deleteButton.dataset.productIds) {
+                    console.log(cartItems.quantity);
+                    cartList.splice(index,1);
+                    console.log('hello world');
+                    cartListStorage();
+                    updateCart();
+                    
+                
+
+                }
+            })
+        })
+    })
 }
-function notation() {
-    console.log(cartList);
-}
+
+cartList= JSON.parse(localStorage.getItem('cartlist'));
+
 
 
 
