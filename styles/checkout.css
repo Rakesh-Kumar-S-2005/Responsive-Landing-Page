@@ -52,16 +52,24 @@
 
 
 .main-page {
-    margin-top:100px;
+    margin-top:20px;
     display:grid;
     grid-template-columns:1fr 350px;
     column-gap:10px;
     padding:0px 10px 0px 100px;
 }
+.reviews {
+  margin-top:150px;
+  margin-left:60px;
+  font-family: 'Merriweather', serif;
+  font-size:23px;
+  font-weight:bold;
+}
 .left-section {
     display:flex;
     flex-direction: column;
     row-gap:15px;
+    
 }
 
 .cart  {
@@ -75,9 +83,9 @@
 .delivery-date {
     margin-top:20px;
     font-size:20px;
-    font-family:arial;
-    color:green;
-    font-weight:bold;
+    font-family: 'Merriweather', serif;
+    color:rgb(0, 118, 0);
+    font-weight:600;
 }
 .cart-item-details {
     display:grid;
@@ -156,7 +164,7 @@
 .date-option {
     color:green;
     font-size:18px;
-    font-weight:bold;
+    font-weight:590;
     font-family:arial;
 }
 .delivery-type {

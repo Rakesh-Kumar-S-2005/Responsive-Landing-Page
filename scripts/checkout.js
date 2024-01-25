@@ -2,7 +2,17 @@ import {cartList} from '../scripts/cart.js';
 import {productInfo} from '../scripts/cartItems.js';
 import {cartListStorage} from '../scripts/cart.js';
 import {convertingMoney} from '../avoidrepeat.js/currency.js';
-let cartnumber=0;
+import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
+let today=new dayjs();
+let seven=today.add(7,'days');
+let three=today.add(3,'days');
+let todayDate=today.add(11,'days');
+let todayDateDetails=todayDate.format(' dddd, MMMM D')
+let aftersevendays=seven.format(' dddd, MMMM D');
+let afterthreedays=three.format(' dddd, MMMM D');
+console.log(todayDateDetails);
+console.log(aftersevendays);
+console.log(afterthreedays);
 updateCart();
 document.querySelector('.checkout').innerHTML=`Checkout (<span class="items" data-cart-number="0">${cartList.length} Items</span>)`;
 
@@ -15,7 +25,7 @@ function updateCart() {
     
                     let htmlElements1=`
                     <div class="cart info1">
-                        <div class="delivery-date">Delivery date: Wednesday, January 24</div>
+                        <div class="delivery-date">Delivery date: ${todayDateDetails} </div>
                         <div class="cart-item-details">
                             <div class="image-container">
                                 <img class="cart-image" src="${cartproducts.imageLink}">
@@ -35,21 +45,21 @@ function updateCart() {
                                 <div class="radio">
                                     <input class="radio1" type="radio" name="${cartproducts.id}">
                                     <div class="options">
-                                        <div class="date-option">Wednesday, January 24</div>
+                                        <div class="date-option">${todayDateDetails}</div>
                                         <div class="delivery-type">FREE Shipping</div>
                                     </div>
                                 </div>
                                 <div class="radio">
                                     <input class="radio1" type="radio" name="${cartproducts.id}">
                                     <div class="options">
-                                        <div class="date-option">Thursday, January 18</div>
+                                        <div class="date-option">${aftersevendays}</div>
                                         <div class="delivery-type">$4.99 - Shipping</div>
                                     </div>
                                 </div>
                                 <div class="radio">
                                     <input class="radio1" type="radio" name="${cartproducts.id}">
                                     <div class="options">
-                                        <div class="date-option">Tuesday, January 16</div>
+                                        <div class="date-option">${afterthreedays}</div>
                                         <div class="delivery-type">$9.99 - Shipping</div>
                                     </div>
                                 </div>
