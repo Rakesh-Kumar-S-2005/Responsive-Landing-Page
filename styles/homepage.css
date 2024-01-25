@@ -167,12 +167,15 @@
     
     padding:40px 35px 25px 35px;
     border-right:1px solid rgb(231, 231, 231);
+  
 }
 .images {
+    padding:10px 0px 20px 0px;
     display:flex;
     justify-content: space-between;
     align-items: center;
     height:180px;
+    
 }
 .images img{
     width:100%;

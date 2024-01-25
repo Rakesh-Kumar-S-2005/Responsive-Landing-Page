@@ -1,6 +1,7 @@
 
 let cartNumber=0;
 export let cartList=[];
+
 let eventListener1= document.querySelectorAll('[data-product-id]');
 eventListener1.forEach((button,index) => {
     button.addEventListener('click',() => {
@@ -37,8 +38,6 @@ function noOfItemsincart() {
 }
 export function cartListStorage() {
     localStorage.setItem('cartlist',JSON.stringify(cartList));
-    
-
 }
 cartList=JSON.parse(localStorage.getItem('cartlist'));
 

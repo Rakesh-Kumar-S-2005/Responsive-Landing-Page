@@ -2,6 +2,7 @@ let concatHTML='';
 let html= document.querySelector('.product-page');
 
 import { productInfo } from '../scripts/cartItems.js';
+import { convertingMoney } from '../avoidrepeat.js/currency.js';
 productInfo.forEach((details,index) => {
     const htmlElement=
                `<div class="product item1">
@@ -18,7 +19,7 @@ productInfo.forEach((details,index) => {
                         <p>${details.ratings.noOfRatings}</p>
                     </div>
                     <div class="price">
-                        <p>$${(details.price)/100}</p>
+                        <p>$${convertingMoney(details.price)}</p>
                     </div>
                     <div class="quantities">
                         <select>

@@ -1,7 +1,7 @@
 import {cartList} from '../scripts/cart.js';
 import {productInfo} from '../scripts/cartItems.js';
 import {cartListStorage} from '../scripts/cart.js';
-
+import {convertingMoney} from '../avoidrepeat.js/currency.js';
 
 updateCart();
 document.querySelector('.checkout').innerHTML=`Checkout (<span class="items" data-cart-number="0">${cartList.length} Items</span>)`;
@@ -21,7 +21,7 @@ function updateCart() {
                             </div>
                             <div class="cart-description">
                                 <div class="name">${cartproducts.imageDescription}</div>
-                                <div class="cart-amount">${(cartproducts.price)/100}</div>
+                                <div class="cart-amount">$${convertingMoney(cartproducts.price)}</div>
                                 <div class="cart-quantity">
                                     <div class="quantity">Quantity: ${cartListItems.quantity}</div>
                                     <div class="update">Update</div>
@@ -31,21 +31,21 @@ function updateCart() {
                             <div class="cart-delivery">
                                 <div class="delivery-option">Choose a delivery option:</div>
                                 <div class="radio">
-                                    <input class="radio1" type="radio" name="options">
+                                    <input class="radio1" type="radio" name="${cartproducts.id}">
                                     <div class="options">
                                         <div class="date-option">Wednesday, January 24</div>
                                         <div class="delivery-type">FREE Shipping</div>
                                     </div>
                                 </div>
                                 <div class="radio">
-                                    <input class="radio1" type="radio" name="options">
+                                    <input class="radio1" type="radio" name="${cartproducts.id}">
                                     <div class="options">
                                         <div class="date-option">Thursday, January 18</div>
                                         <div class="delivery-type">$4.99 - Shipping</div>
                                     </div>
                                 </div>
                                 <div class="radio">
-                                    <input class="radio1" type="radio" name="options">
+                                    <input class="radio1" type="radio" name="${cartproducts.id}">
                                     <div class="options">
                                         <div class="date-option">Tuesday, January 16</div>
                                         <div class="delivery-type">$9.99 - Shipping</div>
