@@ -2,9 +2,10 @@ import {cartList} from '../scripts/cart.js';
 import {productInfo} from '../scripts/cartItems.js';
 import {cartListStorage} from '../scripts/cart.js';
 import {convertingMoney} from '../avoidrepeat.js/currency.js';
-
+let cartnumber=0;
 updateCart();
 document.querySelector('.checkout').innerHTML=`Checkout (<span class="items" data-cart-number="0">${cartList.length} Items</span>)`;
+
 
 function updateCart() {
     let concatHtml1=' ';
@@ -22,9 +23,10 @@ function updateCart() {
                             <div class="cart-description">
                                 <div class="name">${cartproducts.imageDescription}</div>
                                 <div class="cart-amount">$${convertingMoney(cartproducts.price)}</div>
-                                <div class="cart-quantity">
-                                    <div class="quantity">Quantity: ${cartListItems.quantity}</div>
-                                    <div class="update">Update</div>
+                                
+                                <div class="cart-quantity" data-cart-${cartproducts.id}="cart-quantity-${cartproducts.id}">
+                                    <div class="quantity" data-quantity-id="quantity-${cartproducts.id}">Quantity: ${cartListItems.quantity}</div>
+                                    <div class="update" data-update-id="${cartproducts.id}">Update</div>
                                     <div class="delete" data-product-ids="${cartproducts.id}">Delete</div>
                                 </div>
                             </div>
@@ -70,9 +72,7 @@ function updateCart() {
         deleteButton.addEventListener('click',() => {
             cartList.forEach((cartItems,index) => {
                 if(cartItems.cartId===deleteButton.dataset.productIds) {
-                    console.log(cartItems.quantity);
                     cartList.splice(index,1);
-                    console.log('hello world');
                     cartListStorage();
                     updateCart();
                     
@@ -82,9 +82,27 @@ function updateCart() {
             })
         })
     })
+    
+    if(cartList.length===0) {
+        let htmlElements3=`
+        
+            <div class="Empty-container">
+            
+                <div class="Empty-cart">Your Cart is empty</div>
+                <a class="homepage-link" href="homepage.html"><button class="homepage-button">View Products</button></a>
+            </div>
+        `;
+        document.querySelector('.left-section').innerHTML=htmlElements3;
+    }
+    
 }
 
 cartList= JSON.parse(localStorage.getItem('cartlist'));
+
+
+
+
+
 
 
 

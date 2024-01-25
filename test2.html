@@ -21,6 +21,21 @@
                     grid-column-end: span 2;
                 }
             }
+            .div-exp {
+                display:flex;
+                flex-direction: row;
+                column-gap:18px;
+                margin-top:20px;
+
+            }
+            .update {
+                cursor:pointer;
+            }
+            .Save {
+                color:red;
+                cursor:pointer;
+            }
+            
         </style>
     </head>
     <body>
@@ -41,10 +56,37 @@
         <div class="hello">Delete</div>
         <div class="hello">Delete</div>
         <div class="hello">Delete</div>
+        <div class="div-exp">
+            <div class="cart-quantity">Quantity:1</div>
+            <div class="update">Update</div>
+        </div>
         <script>
-            
-            
-            
+          let htmlElement;
+          let random=0;
+          let eventListener1=document.querySelector('.update');
+          eventListener1.addEventListener('click',() => {
+           
+                
+                htmlcode();
+                fun();
+
+          });
+          function fun() {
+            document.querySelector('.div-exp').innerHTML=htmlElement;
+          }
+          
+        let eventListener2=document.querySelector('.save');
+        eventListener2.addEventListener('click',() => {
+            console.log('hello wprld');
+        })  
+        
+          function htmlcode() {
+            htmlElement=`
+                <div class="cart-quantity">Quantity:<input class="Numbers" type="number"></div>
+                <div class="save">Save</div>
+                `;
+          }
+          
         </script>
     </body>
 </html>
