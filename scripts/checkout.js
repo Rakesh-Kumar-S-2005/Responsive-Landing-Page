@@ -7,12 +7,9 @@ let today=new dayjs();
 let seven=today.add(7,'days');
 let three=today.add(3,'days');
 let todayDate=today.add(11,'days');
-let todayDateDetails=todayDate.format(' dddd, MMMM D')
-let aftersevendays=seven.format(' dddd, MMMM D');
-let afterthreedays=three.format(' dddd, MMMM D');
-console.log(todayDateDetails);
-console.log(aftersevendays);
-console.log(afterthreedays);
+export let todayDateDetails=todayDate.format(' dddd, MMMM D')
+export let aftersevendays=seven.format(' dddd, MMMM D');
+export let afterthreedays=three.format(' dddd, MMMM D');
 updateCart();
 document.querySelector('.checkout').innerHTML=`Checkout (<span class="items" data-cart-number="0">${cartList.length} Items</span>)`;
 
@@ -34,16 +31,16 @@ function updateCart() {
                                 <div class="name">${cartproducts.imageDescription}</div>
                                 <div class="cart-amount">$${convertingMoney(cartproducts.price)}</div>
                                 
-                                <div class="cart-quantity" data-cart-${cartproducts.id}="cart-quantity-${cartproducts.id}">
-                                    <div class="quantity" data-quantity-id="quantity-${cartproducts.id}">Quantity: ${cartListItems.quantity}</div>
-                                    <div class="update" data-update-id="${cartproducts.id}">Update</div>
+                                <div class="cart-quantity">
+                                    <div class="quantity">Quantity: ${cartListItems.quantity}</div>
+                                    <div class="update">Update</div>
                                     <div class="delete" data-product-ids="${cartproducts.id}">Delete</div>
                                 </div>
                             </div>
                             <div class="cart-delivery">
                                 <div class="delivery-option">Choose a delivery option:</div>
                                 <div class="radio">
-                                    <input class="radio1" type="radio" name="${cartproducts.id}">
+                                    <input class="radio1" type="radio" name="${cartproducts.id}" checked>
                                     <div class="options">
                                         <div class="date-option">${todayDateDetails}</div>
                                         <div class="delivery-type">FREE Shipping</div>
@@ -92,6 +89,7 @@ function updateCart() {
             })
         })
     })
+    
     
     if(cartList.length===0) {
         let htmlElements3=`

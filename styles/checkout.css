@@ -183,6 +183,7 @@
     padding:20px 10px 20px 10px;
     row-gap:5px;
     border:2px solid rgb(222,222,222);
+    height:fit-content;
 }
 .summary {
     font-size:25px;
@@ -248,6 +249,7 @@
     border:none;
     cursor:pointer;
     transition: border-radius 1s;
+    margin-bottom:0px;
 }
 .place:hover {
     border-radius:0px;

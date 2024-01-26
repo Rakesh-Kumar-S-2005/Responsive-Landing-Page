@@ -15,7 +15,8 @@ eventListener1.forEach((button,index) => {
             cartList.push(
                 {
                     cartId:button.dataset.productId,
-                    quantity:1
+                    quantity:1,
+                    deliveryId:'1'
                 }
             );
         } 
