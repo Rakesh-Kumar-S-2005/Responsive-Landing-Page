@@ -3,26 +3,56 @@ import {productInfo} from '../scripts/cartItems.js';
 import {cartListStorage} from '../scripts/cart.js';
 import {convertingMoney} from '../avoidrepeat.js/currency.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
-let today=new dayjs();
-let seven=today.add(7,'days');
-let three=today.add(3,'days');
-let todayDate=today.add(11,'days');
-export let todayDateDetails=todayDate.format(' dddd, MMMM D')
-export let aftersevendays=seven.format(' dddd, MMMM D');
-export let afterthreedays=three.format(' dddd, MMMM D');
+import {cartDeliveryInfo} from '../scripts/deliveryOptions.js';
+console.log(cartList);
+let today= new dayjs();
+let aftereleven= today.add(11,'days');
+let todayDateDetails=aftereleven.format('dddd, MMMM D');
 updateCart();
 document.querySelector('.checkout').innerHTML=`Checkout (<span class="items" data-cart-number="0">${cartList.length} Items</span>)`;
 
+
+function updateDeliveryInfo(cartproducts,cartItems) {
+    let concat2='';
+    cartDeliveryInfo.forEach((deliveryInfo,index) => {
+        let date= today.add(deliveryInfo.deliveryDays,'days');
+        let dateOption= date.format('dddd, MMMM D');
+        let deliveryOption= deliveryInfo.deliveryPrice===0?'FREE':`$${convertingMoney(deliveryInfo.deliveryPrice)} -`;
+        let isChecked= cartItems.deliveryId===deliveryInfo.deliveryId;
+        let html= `
+   
+            <div class="radio">
+                <input class="radio1" data-input-name="${cartproducts.id}" type="radio" name="${cartproducts.id}" ${isChecked ?'checked':''} >
+                <div class="options">
+                    <div class="date-option">${dateOption}</div>
+                    <div class="delivery-type">${deliveryOption} Shipping</div>
+                </div>
+            </div>
+    
+
+        `;
+        concat2+=html;
+    })
+    return concat2;
+}
 
 function updateCart() {
     let concatHtml1=' ';
     cartList.forEach((cartListItems,index) => {
         productInfo.forEach((cartproducts) => {
+            let delivery;
+            let deliveryDate;
             if(cartListItems.cartId===cartproducts.id) {
+                    cartDeliveryInfo.forEach((deliveryInfo,index) => {
+                        if(cartListItems.deliveryId===deliveryInfo.deliveryId) {
+                            delivery=today.add(deliveryInfo.deliveryDays,'days');
+                            deliveryDate=delivery.format('dddd, MMMM D');
+                        }
+                    })
     
                     let htmlElements1=`
                     <div class="cart info1">
-                        <div class="delivery-date">Delivery date: ${todayDateDetails} </div>
+                        <div class="delivery-date">Delivery date: ${deliveryDate} </div>
                         <div class="cart-item-details">
                             <div class="image-container">
                                 <img class="cart-image" src="${cartproducts.imageLink}">
@@ -39,27 +69,7 @@ function updateCart() {
                             </div>
                             <div class="cart-delivery">
                                 <div class="delivery-option">Choose a delivery option:</div>
-                                <div class="radio">
-                                    <input class="radio1" type="radio" name="${cartproducts.id}" checked>
-                                    <div class="options">
-                                        <div class="date-option">${todayDateDetails}</div>
-                                        <div class="delivery-type">FREE Shipping</div>
-                                    </div>
-                                </div>
-                                <div class="radio">
-                                    <input class="radio1" type="radio" name="${cartproducts.id}">
-                                    <div class="options">
-                                        <div class="date-option">${aftersevendays}</div>
-                                        <div class="delivery-type">$4.99 - Shipping</div>
-                                    </div>
-                                </div>
-                                <div class="radio">
-                                    <input class="radio1" type="radio" name="${cartproducts.id}">
-                                    <div class="options">
-                                        <div class="date-option">${afterthreedays}</div>
-                                        <div class="delivery-type">$9.99 - Shipping</div>
-                                    </div>
-                                </div>
+                                ${updateDeliveryInfo(cartproducts,cartListItems)}
                             </div>
                         </div>
                     </div>
@@ -84,12 +94,10 @@ function updateCart() {
                     updateCart();
                     
                 
-
                 }
             })
         })
     })
-    
     
     if(cartList.length===0) {
         let htmlElements3=`
@@ -106,15 +114,4 @@ function updateCart() {
 }
 
 cartList= JSON.parse(localStorage.getItem('cartlist'));
-
-
-
-
-
-
-
-
-
-
-
 

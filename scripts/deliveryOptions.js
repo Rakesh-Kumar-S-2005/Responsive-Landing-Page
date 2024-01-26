@@ -1,29 +1,17 @@
-import { todayDateDetails } from "./checkout.js";
-import { aftersevendays } from "./checkout.js";
-import { afterthreedays } from "./checkout.js";
-
-let html='';
-let cartDeliveryInfo=[
+export let cartDeliveryInfo= [
     {
         deliveryId:'1',
-        deliveryPrice: 0,
-        deliveryDate:todayDateDetails
-    },
+        deliveryDays:11,
+        deliveryPrice:0
+    }, 
     {
         deliveryId:'2',
-        deliveryPrice: 499,
-        deliveryDate:aftersevendays
+        deliveryDays:7,
+        deliveryPrice:499
     },
     {
         deliveryId:'3',
-        deliveryPrice:999,
-        deliveryDate:afterthreedays
+        deliveryDays:3,
+        deliveryPrice:999
     }
 ];
-function generateDeliveryHTML() {
-    let html=`
-    
-            
-    
-    `;
-}
