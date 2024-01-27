@@ -1,7 +1,7 @@
 let concatHTML='';
 let html= document.querySelector('.product-page');
 
-import { productInfo } from '../scripts/cartItems.js';
+import { productInfo } from '../data/cartItems.js';
 import { convertingMoney } from '../avoidrepeat.js/currency.js';
 productInfo.forEach((details,index) => {
     const htmlElement=
