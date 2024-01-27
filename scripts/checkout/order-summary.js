@@ -7,11 +7,16 @@ import {cartDeliveryInfo} from '../../data/deliveryOptions.js';
 console.log(cartList);
 let today= new dayjs();
 let aftereleven= today.add(11,'days');
-let todayDateDetails=aftereleven.format('dddd, MMMM D');
 updateCart();
-document.querySelector('.checkout').innerHTML=`Checkout (<span class="items" data-cart-number="0">${cartList.length} Items</span>)`;
- 
 
+ 
+function updateCheckList() {
+    let random=0;
+    cartList.forEach((cartListItems,index) => {
+        random=random+cartListItems.quantity;
+    });
+    document.querySelector('.checkout').innerHTML=document.querySelector('.checkout').innerHTML=`Checkout (<span class="items" data-cart-number="0">${random} Items</span>)`;;
+}
 function updateDeliveryInfo(cartproducts,cartItems) {
     let concat2='';
     cartDeliveryInfo.forEach((deliveryInfo,index) => {
@@ -83,7 +88,7 @@ export function updateCart() {
             
     });
     document.querySelector('.left-section').innerHTML=concatHtml1;
-    document.querySelector('.checkout').innerHTML=`Checkout (${cartList.length} Items)`;
+    updateCheckList();
     let eventListener2= document.querySelectorAll('.delete');
     eventListener2.forEach((deleteButton) => {
         deleteButton.addEventListener('click',() => {
