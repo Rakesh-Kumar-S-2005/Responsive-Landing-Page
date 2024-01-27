@@ -1,12 +1,12 @@
-
 let cartNumber=0;
 export let cartList=[];
-let eventListener1= document.querySelectorAll('[data-product-id]');
-eventListener1.forEach((button,index) => {
-    button.addEventListener('click',() => {
+
+let eventListener2=document.querySelectorAll('[data-product-id]');
+eventListener2.forEach((cartButton,index) => {
+    cartButton.addEventListener('click',() => {
         let random=0;
-        for(let i=0; i<cartList.length; i++) {
-            if(button.dataset.productId===cartList[i].cartId) {
+        for(let i=0; i<cartList.length;i++) {
+            if(cartButton.dataset.productId===cartList[i].cartId) {
                 cartList[i].quantity++;
                 random++;
             }
@@ -14,35 +14,30 @@ eventListener1.forEach((button,index) => {
         if(random===0) {
             cartList.push(
                 {
-                    cartId:button.dataset.productId,
+                    cartId:cartButton.dataset.productId,
                     quantity:1,
                     deliveryId:'1'
                 }
-            );
-        } 
-        cartListInfo();
-        noOfItemsincart();
+            )
+        }
+        displayCartInfo();
+        updateCartNumber();
         cartListStorage();
         
     })
 })
-
-function cartListInfo() {
-    cartList.forEach((object,index) => {
-        console.log(object.cartId);
-        console.log(object.quantity);
+function displayCartInfo() {
+    cartList.forEach((cartItems,index) => {
+        console.log(cartItems.cartId);
+        console.log(cartItems.quantity);
+        console.log(cartItems.deliveryId);
     })
 }
-function noOfItemsincart() {
+function updateCartNumber() {
     cartNumber++;
     document.querySelector('.cart-number').innerHTML=cartNumber;
 }
 export function cartListStorage() {
-    localStorage.setItem('cartlist',JSON.stringify(cartList));
+    localStorage.setItem('cartList',JSON.stringify(cartList));
 }
-cartList=JSON.parse(localStorage.getItem('cartlist'));
-
-
-
-
-
+cartList=JSON.parse(localStorage.getItem('cartList'));
