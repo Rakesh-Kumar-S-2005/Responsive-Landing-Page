@@ -30,7 +30,7 @@ function displayCartInfo() {
     cartList.forEach((cartItems,index) => {
         console.log(cartItems.cartId);
         console.log(cartItems.quantity);
-        console.log(cartItems.deliveryId);
+        console.log(cartItems.deliveryId); 
     })
 }
 function updateCartNumber() {

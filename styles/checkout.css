@@ -176,6 +176,7 @@
     width:20px;
     height:20px;
     border:1px solid blue;
+    cursor:pointer;
 }
 .right-section {
     display:flex;
