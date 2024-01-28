@@ -230,6 +230,7 @@ option:hover {
     background-color: rgb(255, 216, 20);
     color:black;
     border:none;
+    cursor:pointer;
 }
 .cart-button:hover {
     opacity:0.7;
