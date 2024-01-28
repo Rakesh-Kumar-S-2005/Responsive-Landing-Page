@@ -119,6 +119,9 @@ export function updateCart() {
         })
     })
     
+    let html3;
+    
+    
     if(cartList.length===0) {
         let htmlElements3=`
         

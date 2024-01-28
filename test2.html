@@ -3,73 +3,57 @@
     <head>
         <style>
             .container {
-                display:grid;
-                grid-template-columns:100px 1fr 1fr;
-                gap:10px;
-            }
-            .sub {
-                background-color:red;
-                border:1px solid black;
-                height:50px;
-            }
-            @media screen and (width<1000px) {
-                .container {
-                    grid-template-columns: 100px 1fr;
-                }
-                .class3 {
-                    grid-column-start: 1;
-                    grid-column-end: span 2;
-                }
-            }
-            .div-exp {
                 display:flex;
                 flex-direction: row;
-                column-gap:18px;
-                margin-top:20px;
-
+                column-gap: 8px;
+                margin-top:100px;
+                margin-left: 200px;
+                font-size: 20px;
             }
             .update {
                 cursor:pointer;
             }
-            .Save {
+            .update:hover {
                 color:red;
-                cursor:pointer;
             }
-            
         </style>
     </head>
     <body>
         <div class="container">
-            <div class="sub class1">
-
-            </div>
-            <div class="sub class2">
-
-            </div>
-            <div class="sub class3"></div>
-        </div>
-        <div class="hello">Delete</div>
-        <div class="hello">Delete</div>
-        <div class="hello">Delete</div>
-        <div class="hello">Delete</div>
-        <div class="hello">Delete</div>
-        <div class="hello">Delete</div>
-        <div class="hello">Delete</div>
-        <div class="hello">Delete</div>
-        <div class="div-exp">
-            <div class="cart-quantity">Quantity:1</div>
+            <div class="quntity">Quantity:1</div>
             <div class="update">Update</div>
         </div>
-        <input class="gender" name="gender" type="radio">Male
-        <input class="gender" name="gender" type="radio">Female
+        
         <script>
-          
-        let eventListener1=document.querySelectorAll('.gender');
-        eventListener1.forEach((event) => {
-            event.addEventListener('click',() => {
-                console.log('hello world');
+            let html;
+            cart();
+            function cart() {
+                let event=document.querySelector('.update');
+                event.addEventListener('click',() => {
+                    html=`
+                        <div class="quntity">Quantity: <input class="num" type="number"></div>
+                        <div class="Save">Save</div>
+                        
+                    `
+                    document.querySelector('.container').innerHTML=html;
+                    eventList();
+                })
+            }
+            function eventList() {
+                let eventListener=document.querySelector('.Save');
+                eventListener.addEventListener('click',() => {
+                html=`
+                    
+                 <div class="quntity">Quantity:1</div>
+                 <div class="update">Update</div>
+                
+                `;
+                document.querySelector('.container').innerHTML=html;
+                cart();
             })
-        })
+            }
+            
         </script>
     </body>
+    
 </html>
