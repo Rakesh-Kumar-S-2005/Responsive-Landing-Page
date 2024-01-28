@@ -4,11 +4,13 @@ import {cartListStorage} from '../../data/cart.js';
 import {convertingMoney} from '../../avoidrepeat.js/currency.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import {cartDeliveryInfo} from '../../data/deliveryOptions.js';
+import { updateCostSummary } from './cost-summary.js'
 console.log(cartList);
 let today= new dayjs();
 let aftereleven= today.add(11,'days');
-updateCart();
 
+updateCart();
+updateCostSummary();
  
 function updateCheckList() {
     let random=0;
@@ -97,7 +99,7 @@ export function updateCart() {
                     cartList.splice(index,1);
                     cartListStorage();
                     updateCart();
-                    
+                    updateCostSummary();
                 
                 }
             })
@@ -111,6 +113,7 @@ export function updateCart() {
                     cartItems.deliveryId=deliveryOption.dataset.productId;
                     cartListStorage();
                     updateCart();
+                    updateCostSummary();
                 }
             })
         })

@@ -1,7 +1,7 @@
-import { cartList } from "../../data/cart";
-import { cartDeliveryInfo } from "../../data/deliveryOptions";
-import { convertingMoney } from "../../avoidrepeat.js/currency";
-import { productInfo } from "../../data/cartItems";
+import { cartList } from "../../data/cart.js";
+import { cartDeliveryInfo } from "../../data/deliveryOptions.js";
+import { convertingMoney } from "../../avoidrepeat.js/currency.js";
+import { productInfo } from "../../data/cartItems.js";
 
 function updatenoofItems() {
     let cartQuantity=0;
@@ -15,7 +15,7 @@ function updatecartCost() {
     productInfo.forEach((cartproducts,index) => {
        cartList.forEach((cartItems,index) => {
         if(cartItems.cartId===cartproducts.id) {
-            cartCost=cartCost+cartproducts.price;
+            cartCost=cartCost+(cartproducts.price)*cartItems.quantity;
         }
        })
     })
@@ -23,32 +23,71 @@ function updatecartCost() {
 }
 
 function shippingTotalCost() {
-    let shippingtCost=0;
+    let shippingCost=0;
     cartList.forEach((cartListItems,index) => {
         cartDeliveryInfo.forEach((deliveryOption,index) => {
-            if(cartListItems.deliveryId===deliveryOption.deliveryId) {
+             if(cartListItems.deliveryId===deliveryOption.deliveryId) {
                 shippingCost=shippingCost+deliveryOption.deliveryPrice;
             }
         })
     })
-    return convertingMoney(shippingtCost);
+    return convertingMoney(shippingCost);
 
 }
 function totalBeforeTax() {
-    let beforeTax=updatecartCost()+shippingTotalCost();
+    let beforeTax1=(updatecartCost())*100;
+    let beforeTax2=(shippingTotalCost())*100;
+    let beforeTax=beforeTax1+beforeTax2;
     return convertingMoney(beforeTax);
 }
 function taxAmount() {
-    let taxAmount= (totalBeforeTax())*(0.1);
-    return convertingMoney(taxAmount);
+    let taxAmount1= (totalBeforeTax())*0.1;
+    return taxAmount1.toFixed(2);
+
 }
 function totalAfterTax() {
-    let totalAmount= totalBeforeTax()+taxAmount();
+    let totalAmount= (totalBeforeTax())*100+(taxAmount())*100;
     return convertingMoney(totalAmount);
 }
-function updateCostSummary() {
+export function updateCostSummary() {
     let html1=`
     
+        <div class="order-summary"><h1 class="summary">Order Summary</h1></div>
+        <div class="cost-of-the-items">
+
+            <div class="items-number summary">
+                <div class="no-of-items summary-content">Items (${updatenoofItems()}):</div>
+                <div class="amount">$${updatecartCost()}</div>
+            </div>
+            <div class="summary shipping-details">
+                <div class="shipping-details summary-content">Shipping & Handling:</div>
+                <div class="amount">$${shippingTotalCost()}</div>
+            </div>
+            <div class="summary amount-before-tax">
+                <div class="money-before-tax summary-content">Total Before Tax:</div>
+                <div class="amount">$${totalBeforeTax()}</div>
+            </div>
+            <div class="summary tax-amount">
+                <div class="summary-content tax-money">Estimated Tax(10%):</div>
+                <div class="amount">$${taxAmount()}</div>
+            </div>
+
+        </div>
+        <div class="summary total-cost">
+            <div class="total-amount">Order Total:</div>
+            <div class="total-money">$${totalAfterTax()}</div>
+        </div>
+        <div class="online-payment">
+            <div class="paypal">Use PayPal</div>
+            <input class="online-banking" type="checkbox" name="paypal">
+        </div>
+        <div class="order-placed">
+            <button class="place">Place Your Order</button>
+        </div>
         
+                
+
     `;
+    document.querySelector('.right-section').innerHTML=html1;
+    
 }
