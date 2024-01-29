@@ -11,13 +11,16 @@ let aftereleven= today.add(11,'days');
 
 updateCart();
 updateCostSummary();
- 
+
 function updateCheckList() {
-    let random=0;
-    cartList.forEach((cartListItems,index) => {
-        random=random+cartListItems.quantity;
+    let value=0;
+    
+    cartList.forEach((cartItems,index) => {
+       value=value+cartItems.quantity;
+        
     });
-    document.querySelector('.checkout').innerHTML=document.querySelector('.checkout').innerHTML=`Checkout (<span class="items" data-cart-number="0">${random} Items</span>)`;;
+   
+    document.querySelector('.checkout').innerHTML=`Checkout (<span class="items"> ${value} Items</span>)`;
 }
 function updateDeliveryInfo(cartproducts,cartItems) {
     let concat2='';
@@ -68,9 +71,9 @@ export function updateCart() {
                                 <div class="name">${cartproducts.imageDescription}</div>
                                 <div class="cart-amount">$${convertingMoney(cartproducts.price)}</div>
                                 
-                                <div class="cart-quantity">
+                                <div class="cart-quantity" id="${cartproducts.id}">
                                     <div class="quantity">Quantity: ${cartListItems.quantity}</div>
-                                    <div class="update">Update</div>
+                                    <div class="update"  data-update-id="${cartproducts.id}" data-cart-quantity="${cartListItems.quantity}">Update</div>
                                     <div class="delete" data-product-ids="${cartproducts.id}">Delete</div>
                                 </div>
                             </div>
@@ -100,6 +103,7 @@ export function updateCart() {
                     cartListStorage();
                     updateCart();
                     updateCostSummary();
+                    
                 
                 }
             })
@@ -120,7 +124,53 @@ export function updateCart() {
     })
     
     let html3;
-    
+    updateEvent();
+    function updateEvent() {
+        let updateListener=document.querySelectorAll('.update');
+        updateListener.forEach((updateButton,index) => {
+            updateButton.addEventListener('click',() => {
+                html3=`
+                
+                    <div class="quantity">Quantity: <input id="${updateButton.dataset.updateId}-1"  class="event" type="number" value="${updateButton.dataset.cartQuantity}"></div>
+                    <div class="Save" data-save-id="${updateButton.dataset.updateId}" data-cart-quantity="${updateButton.dataset.cartQuantity}">Save</div>
+                    <div class="delete" data-product-ids="${updateButton.dataset.updateId}">Delete</div>
+                `;
+                document.getElementById(`${updateButton.dataset.updateId}`).innerHTML=html3;
+                saveEvent();
+            })
+        })
+
+    }
+    function saveEvent() {
+        let saveListener=document.querySelectorAll('.Save');
+        saveListener.forEach((saveButton,index) => {
+            saveButton.addEventListener('click',() => {
+                let check=parseInt(document.getElementById(`${saveButton.dataset.saveId}-1`).value);
+                cartList.forEach((cartItems,index) => {
+                    if(cartItems.cartId===saveButton.dataset.saveId) {
+                        cartItems.quantity=check;
+                        cartListStorage();
+                        
+                        
+                    }
+                })
+                html3=`
+                
+                    <div class="quantity">Quantity: ${saveButton.dataset.cartQuantity}</div>
+                    <div class="update"  data-update-id="${saveButton.dataset.saveId}" data-cart-quantity="${saveButton.dataset.cartQuantity}">Update</div>
+                    <div class="delete" data-product-ids="${saveButton.dataset.saveId}">Delete</div>
+                
+                `;
+                document.getElementById(`${saveButton.dataset.saveId}`).innerHTML=html3;
+                updateEvent();
+                updateCart();
+                updateCostSummary();
+                
+            })
+
+        })
+    }
+
     
     if(cartList.length===0) {
         let htmlElements3=`

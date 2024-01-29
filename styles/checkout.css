@@ -137,8 +137,19 @@
     color:blue;
     cursor:pointer;
 }
-.update:hover, .delete:hover {
+.Save {
+    font-family: arial;
+    font-size: 16px;
+    color:blue;
+    cursor:pointer;
+}
+.update:hover, .delete:hover,.Save:hover {
     color:red;
+}
+.event {
+    width:50px;
+    height:20px;
+    border:1px solid black;
 }
 .cart-delivery {
     display:flex;
