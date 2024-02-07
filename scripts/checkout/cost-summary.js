@@ -1,8 +1,11 @@
-import { cartList } from "../../data/cart.js";
+import { cartList, cartListStorage } from "../../data/cart.js";
 import { cartDeliveryInfo } from "../../data/deliveryOptions.js";
 import { convertingMoney } from "../../avoidrepeat.js/currency.js";
 import { productInfo } from "../../data/cartItems.js";
+import { updateCart } from "./order-summary.js";
 
+export let orderDetails=[];
+orderDetails=JSON.parse(localStorage.getItem('orderedItems'));
 function updatenoofItems() {
     let cartQuantity=0;
     cartList.forEach((cartItems,index) => {
@@ -45,6 +48,7 @@ function taxAmount() {
     return taxAmount1.toFixed(2);
 
 }
+
 function totalAfterTax() {
     let totalAmount= (totalBeforeTax())*100+(taxAmount())*100;
     return convertingMoney(totalAmount);
@@ -88,6 +92,34 @@ export function updateCostSummary() {
                 
 
     `;
+   
     document.querySelector('.right-section').innerHTML=html1;
+    let eventListener4=document.querySelector('.place');
+    eventListener4.addEventListener('click',() => {
+       cartList.forEach((orderData,index) => {
+            orderDetails.push(
+                {
+                    productId:orderData.cartId,
+                    productQuantity:orderData.quantity,
+                    productDeliveryInfo:orderData.deliveryId
+
+                }
+            );
+           
+           
+       })
+       cartList.splice(0);
+       cartListStorage();
+       updateCart();
+       updateCostSummary();
+       console.log(orderDetails);
+       saveOrder();
+      
+    })
     
 }
+function saveOrder() {
+    localStorage.setItem('orderedItems',JSON.stringify(orderDetails));
+    
+}
+
