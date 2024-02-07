@@ -26,6 +26,7 @@ eventListener2.forEach((cartButton,index) => {
         
     })
 })
+
 function displayCartInfo() {
     cartList.forEach((cartItems,index) => {
         console.log(cartItems.cartId);
