@@ -97,15 +97,7 @@ export function updateCostSummary() {
     let eventListener4=document.querySelector('.place');
     eventListener4.addEventListener('click',() => {
        cartList.forEach((orderData,index) => {
-            orderDetails.push(
-                {
-                    productId:orderData.cartId,
-                    productQuantity:orderData.quantity,
-                    productDeliveryInfo:orderData.deliveryId
-
-                }
-            );
-           
+           let random=0;
            
        })
        cartList.splice(0);
