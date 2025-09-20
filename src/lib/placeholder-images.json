@@ -1,0 +1,70 @@
+{
+  "placeholderImages": [
+    {
+      "id": "quiz",
+      "description": "An abstract image representing a quiz or assessment.",
+      "imageUrl": "https://picsum.photos/seed/quiz/600/400",
+      "imageHint": "quiz assessment"
+    },
+    {
+      "id": "jobs",
+      "description": "An image of a city skyline, representing job opportunities.",
+      "imageUrl": "https://picsum.photos/seed/jobs/600/400",
+      "imageHint": "city office"
+    },
+    {
+      "id": "courses",
+      "description": "An image of books on a shelf, representing learning and courses.",
+      "imageUrl": "https://picsum.photos/seed/courses/600/400",
+      "imageHint": "books library"
+    },
+    {
+      "id": "resume",
+      "description": "A person writing at a desk, representing resume building.",
+      "imageUrl": "https://picsum.photos/seed/resume/600/400",
+      "imageHint": "writing resume"
+    },
+    {
+      "id": "interviews",
+      "description": "Two people in a professional meeting, representing an interview.",
+      "imageUrl": "https://picsum.photos/seed/interviews/600/400",
+      "imageHint": "meeting interview"
+    },
+    {
+      "id": "mock-interview-resume",
+      "description": "An image representing a resume-based mock interview.",
+      "imageUrl": "https://picsum.photos/seed/mock-interview-resume/600/400",
+      "imageHint": "resume interview"
+    },
+    {
+      "id": "skill-analysis",
+      "description": "An image of a road map, representing a skill roadmap.",
+      "imageUrl": "https://picsum.photos/seed/skill-analysis/600/400",
+      "imageHint": "roadmap journey"
+    },
+    {
+      "id": "day-in-life",
+      "description": "An image of a person working at a desk, representing a day in the life.",
+      "imageUrl": "https://picsum.photos/seed/day-in-life/600/400",
+      "imageHint": "developer desk"
+    },
+    {
+      "id": "project-suggestions",
+      "description": "An image of a lightbulb, representing new ideas.",
+      "imageUrl": "https://picsum.photos/seed/project-suggestions/600/400",
+      "imageHint": "idea lightbulb"
+    },
+    {
+      "id": "resume-scanner",
+      "description": "An image of a document being scanned.",
+      "imageUrl": "https://picsum.photos/seed/resume-scanner/600/400",
+      "imageHint": "document scan"
+    },
+    {
+      "id": "interview-experience",
+      "description": "An image of people talking, representing sharing experiences.",
+      "imageUrl": "https://picsum.photos/seed/interview-experience/600/400",
+      "imageHint": "people talking"
+    }
+  ]
+}
